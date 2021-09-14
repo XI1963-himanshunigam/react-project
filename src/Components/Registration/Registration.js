@@ -5,12 +5,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Config from "../../Config";
 import { useHistory } from "react-router-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Registration = () => {
   const history = useHistory();
 
-  //   Validation starts from here
+  // Validation starts from here
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("First Name is required"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
@@ -24,7 +24,7 @@ const Registration = () => {
   });
   const { errors } = formState;
 
-  //   Submit form method starts from here
+  // Submit form method starts from here
   const onSubmit = (data, e) => {
     fetch(`${Config.baseUrl}/posts`, {
       method: "POST",
@@ -40,7 +40,7 @@ const Registration = () => {
       });
   };
 
-  //   HTML section starts from here
+  // HTML section starts from here
   return (
     <div className="reg-login">
       <div className="containers">
@@ -56,7 +56,6 @@ const Registration = () => {
                   name="name"
                   type="text"
                   {...register("name")}
-                  className="form-input"
                   className={`form-control ${errors.name ? "is-invalid" : ""}`}
                   placeholder="Full Name"
                 />
@@ -88,11 +87,9 @@ const Registration = () => {
                 <input
                   name="password"
                   type="password"
-                  className="form-input"
                   {...register("password")}
-                  className={`form-control ${
-                    errors.password ? "is-invalid" : ""
-                  }`}
+                  className={`form-control ${errors.password ? "is-invalid" : ""
+                    }`}
                   placeholder="Password"
                 />
               </div>

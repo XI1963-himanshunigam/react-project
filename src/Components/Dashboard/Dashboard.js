@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Photos from "./Photos";
 import Album from "./Album";
 import Posts from "./Posts";
+import PhotoDetail from "./PhotoDetail";
+import AlbumDetail from "./AlbumDetail";
+import PostDetail from "./PostDetail";
 import { withRouter } from "react-router-dom";
 
 const Nav = () => (
@@ -39,16 +42,16 @@ class Dashboard extends Component {
   render() {
     return (
       <Router>
-        <div class="container mt-5">
-          <div class="row">
-            <div class="col-md-4">Logo</div>
+        <div className="container mt-5">
+          <div className="row">
+            <div className="col-md-4">Logo</div>
 
-            <div class="col-md-4">
+            <div className="col-md-4">
               <h3>Welcome, {this.state.user[0].name}</h3>
             </div>
 
             <div
-              class="col-md-4 text-right cursor-pointer"
+              className="col-md-4 text-right cursor-pointer"
               onClick={() => {
                 this.logout();
               }}
@@ -61,6 +64,9 @@ class Dashboard extends Component {
           <Route exact path="/photos" component={Photos} />
           <Route path="/album" component={Album} />
           <Route path="/posts" component={Posts} />
+          <Route path="/photo-details/:id" component={PhotoDetail} />
+          <Route path="/album-details/:id" component={AlbumDetail} />
+          <Route path="/post-details/:id" component={PostDetail} />
         </div>
       </Router>
     );

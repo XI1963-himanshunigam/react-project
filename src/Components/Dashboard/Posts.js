@@ -1,7 +1,7 @@
 import { Component } from "react";
 import Config from "../../Config";
 import "../Dashboard/Dashboard.css";
-
+import { Link } from "react-router-dom";
 class Posts extends Component {
   constructor() {
     super();
@@ -37,21 +37,25 @@ class Posts extends Component {
               {data.map(function (d, idx) {
                 return (
                   <div className="col-md-3" key={idx}>
-                    <ul className="card-list">
-                      <li className="card">
-                        {d.title}
-                        <a className="card-image">
-                          <img
-                            src="https://picsum.photos/200/300?random=1"
-                            alt="Psychopomp"
-                          />
-                        </a>
-                        <a className="card-description">
-                          <h2>Posts</h2>
-                          <p class="text-wrap">{d.title}</p>
-                        </a>
-                      </li>
-                    </ul>
+                    <Link to={{
+                      pathname: `/post-details/${d.id}`,
+                      state: { users: d }
+                    }}>
+                      <ul className="card-list">
+                        <li className="card">
+                          <span className="card-image">
+                            <img
+                              src="https://picsum.photos/200/300?random=1"
+                              alt="Psychopomp"
+                            />
+                          </span>
+                          <span className="card-description">
+                            <h2>Posts</h2>
+                            <p class="text-wrap">{d.title}</p>
+                          </span>
+                        </li>
+                      </ul>
+                    </Link>
                   </div>
                 );
               })}

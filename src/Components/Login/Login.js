@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Config from "../../Config";
 import { withRouter } from "react-router-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../Login/Login.css";
 
 class Login extends Component {
@@ -17,10 +17,10 @@ class Login extends Component {
   login() {
     fetch(
       `${Config.baseUrl}/users` +
-        "?email=" +
-        this.state.email +
-        "&password=" +
-        this.state.password
+      "?email=" +
+      this.state.email +
+      "&password=" +
+      this.state.password
     ).then((data) => {
       data.json().then((resp) => {
         if (
@@ -87,7 +87,7 @@ class Login extends Component {
               />
             </div>
 
-            {/* Go to Registration page */}
+            {/* Go to Registration page  */}
             <div className="text-center">
               <Link to="/registration">Go to Register</Link>
             </div>

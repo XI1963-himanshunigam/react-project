@@ -89,3 +89,13 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.detail-text {
+  text-align: center;
+  margin: 40px 0;
+  text-decoration: underline;
+}
+
+.text-center {
+  text-align: center;
+}

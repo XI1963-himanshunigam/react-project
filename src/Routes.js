@@ -10,6 +10,9 @@ import Login from "./Components/Login/Login";
 import Registration from "./Components/Registration/Registration";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import PageNotFound from "./Components/ErrorPages/PageNotFound";
+// import Photos from "./Components/Dashboard/Photos";
+// import Album from "./Components/Dashboard/Album";
+// import Posts from "./Components/Dashboard/Posts";
 
 const Routes = (props) => {
   return (
@@ -30,6 +33,9 @@ const Routes = (props) => {
         <Route path="*">
           <PageNotFound />
         </Route>
+
+
+
       </Switch>
     </Router>
   );
